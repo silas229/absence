@@ -8,14 +8,6 @@ const controller = require('./controller/substitution/controller');
 const app = express();
 
 require('./mongoose').connect().then(() => {
-    const User = require('mongoose').model('User');
-    /*let lukas = new User({name: 'Lukas',
-        email: 'lukas.fruntke@outlook.com',
-        password: 'luka',
-        rank: 'cool',
-        grade: 'J2',
-    })
-    lukas.save();*/
     const middleware = require("./middleware/AuthChecker");
     const LoginController = require("./controller/authentication/LoginController");
     const Strategy  = require("./controller/authentication/passport/login");
