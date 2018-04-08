@@ -2,7 +2,9 @@
   "name": "absence",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://lukvonstrom.de/demo",
   "dependencies": {
+    "prop-types": "^15.6.1",
     "raven-js": "^3.24.0",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",

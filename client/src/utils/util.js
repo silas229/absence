@@ -1,8 +1,8 @@
 import isEmptyObject from "./utility/isEmptyObject";
+import getAllUrlParams from "./utility/getAllURLParams";
 
-export default utility;
-
-const utility = {
-    isEmptyObject: isEmptyObject
+export default {
+    isEmptyObject: isEmptyObject,
+    getAllURLParams: getAllUrlParams,
 };
 
