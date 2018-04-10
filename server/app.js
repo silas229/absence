@@ -3,7 +3,9 @@ const bodyParser = require("body-parser");
 const passport = require("passport");
 const path = require('path');
 const controller = require('./controller/substitution/controller');
+const cors = require('cors');
 
+require('dotenv').load();
 
 const app = express();
 
@@ -13,10 +15,11 @@ require('./mongoose').connect().then(() => {
     const Strategy  = require("./controller/authentication/passport/login");
 
 
+    app.use(cors());
 
     app.use(express.static(path.join(__dirname, '/../client/build')));
 
-    app.use(bodyParser.urlencoded({extended: false}));
+    app.use(bodyParser.json());
     app.use(passport.initialize());
 
     passport.use('local-login', Strategy);

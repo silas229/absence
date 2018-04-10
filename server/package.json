@@ -9,7 +9,7 @@
     "url": "fruntke.tech"
   },
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "npm install && node ./bin/www"
   },
   "engines": {
     "node": ">=9"
@@ -18,12 +18,16 @@
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.2",
     "cheerio": "^1.0.0-rc.2",
+    "cors": "^2.8.4",
+    "debug": "^3.1.0",
+    "dotenv": "^5.0.1",
     "dsbclient": "^1.3.1",
     "express": "^4.16.3",
     "jsonwebtoken": "^8.2.1",
     "mongoose": "^5.0.13",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
+    "request": "^2.85.0",
     "request-promise-native": "^1.0.5"
   }
 }

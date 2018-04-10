@@ -5,7 +5,7 @@ export default class Authentication {
      *
      * @author Lukas Fruntke
      */
-    static authenticate(){
+    static authenticate(token){
         // perform vodoo
         localStorage.setItem('token', token);
     }

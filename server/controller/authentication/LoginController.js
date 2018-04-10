@@ -13,17 +13,15 @@ module.exports = async (req, res, next) => {
     }
 
     return passport.authenticate('local-login', (err, token, userData) => {
-        if(err) {
+        if(err || token === false || userData.message === "Missing credentials") {
+            let error = "InternalError";
             if(err.name === 'IncorrectCredentialsError'){
-                return res.status(400).json({
-                    success: false,
-                    message: err.name,
-                });
+                error = err.name;
             }
             console.error(err);
             return res.status(400).json({
                 success: false,
-                message: 'InternalError'
+                message: error
             });
         }
 

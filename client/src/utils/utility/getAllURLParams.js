@@ -21,6 +21,7 @@ export default function getAllUrlParams(url) {
 
             // in case params look like: list[]=thing1&list[]=thing2
             var paramNum = undefined;
+            // eslint-disable-next-line
             var paramName = a[0].replace(/\[\d*\]/, function(v) {
                 paramNum = v.slice(1,-1);
                 return '';
