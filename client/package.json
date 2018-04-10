@@ -2,7 +2,9 @@
   "name": "absence-client",
   "version": "0.0.1",
   "private": true,
-  "author": {
+  "description": "Absence is a lightweight Webapp for school administration",
+  "license": "MIT",
+    "author": {
     "name": "Lukas Fruntke",
     "email": "lukas@fruntke.tech",
     "url": "fruntke.tech"
