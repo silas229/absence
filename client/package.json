@@ -1,7 +1,18 @@
 {
-  "name": "absence",
-  "version": "0.1.0",
+  "name": "absence-client",
+  "version": "0.0.1",
   "private": true,
+  "author": {
+    "name": "Lukas Fruntke",
+    "email": "lukas@fruntke.tech",
+    "url": "fruntke.tech"
+  },
+  "contributors": [
+  {
+      "name": "flo",
+      "url": "http://flooo.me"
+  },
+  ],
   "homepage": "https://lukvonstrom.de/demo",
   "dependencies": {
     "prop-types": "^15.6.1",
