@@ -25,5 +25,3 @@ yarn-debug.log*
 /server/node_modules/
 /server/.env
 /client/build/
-server/controller/absence/
-server/controller/gfs/
