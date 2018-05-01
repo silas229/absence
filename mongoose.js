@@ -9,8 +9,8 @@ module.exports.connect = async () => {
     process.exit(1);
   });
 
-  mongoose.model('User', require('./controller/users/UserSchema'));
-  mongoose.model('Absence', require('./controller/absence/AbsenceSchema'));
+  mongoose.model('User', require('./models/UserSchema'));
+  mongoose.model('Absence', require('./models/AbsenceSchema'));
   // mongoose.model('AbsenceChange', require('./controller/absence/AbsenceChangeSchema'));
 };
 
