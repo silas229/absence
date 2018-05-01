@@ -1,4 +1,5 @@
 const passport = require('passport');
+const reportHandler = require('../../util/reportHandler');
 
 module.exports = async (req, res, next) => {
   // Plug in Validation :)
@@ -10,6 +11,8 @@ module.exports = async (req, res, next) => {
       // message: validationResult.message,
       // errors: validationResult.errors,
     });
+    // return reportHandler({ auth: true, err: new Error('FAIL'), reporter: res,
+    // optionalValue: {message: validationResult.message, errors: validationResult.errors}});
   }
 
   return passport.authenticate('local-login', (err, token, userData) => {
@@ -18,19 +21,9 @@ module.exports = async (req, res, next) => {
       if (err.name === 'IncorrectCredentialsError') {
         error = err.name;
       }
-      console.error(err);
-      return res.status(400).json({
-        success: false,
-        message: error,
-      });
+      return reportHandler({ auth: true, err: error, reporter: res });
     }
-
-    return res.status(200).json({
-      success: true,
-      message: 'Logged in!',
-      token,
-      user: userData,
-    });
+    return reportHandler({ reporter: res, optionalValue: { token, user: userData } });
   })(req, res, next);
 };
 

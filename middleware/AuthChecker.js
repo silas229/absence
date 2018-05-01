@@ -2,6 +2,7 @@
 const jwt = require('jsonwebtoken');
 
 const User = global.mongoose.model('User');
+const reportHandler = require('../util/reportHandler');
 
 function logic(token) {
   return jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
@@ -15,7 +16,7 @@ function logic(token) {
 }
 
 function ender(res) {
-  return res.status(401).json({ error: 'Unauthorized' }).end();
+  return reportHandler({ err: new Error('Unauthorized'), auth: true, reporter: res });
 }
 
 function middleware(req, res, next) {
