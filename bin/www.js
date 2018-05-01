@@ -3,6 +3,7 @@ const normalizePort = require('../util/normalizePort');
 const debug = require('debug')('absence:server');
 const http = require('http');
 require('dotenv').load();
+const mongoose = require('../mongoose');
 
 let server;
 
@@ -40,8 +41,10 @@ function onListening() {
   console.log(`Listening on ${bind}`);
 }
 
-require('../mongoose').connect().then(() => {
+mongoose.connect().then(() => {
   const app = require('../app');
+
+  global.mongoose = mongoose;
 
   app.set('port', port);
 
