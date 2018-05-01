@@ -4,7 +4,7 @@ const Client = require('dsbclient');
 const cheerio = require('cheerio');
 const util = require('./util');
 
-const client = new Client(157962, 'Rutesheim2016'); // process.env.DSB_ID, process.env.DSB_PASS);
+const client = new Client(process.env.DSB_ID, process.env.DSB_PASS);
 
 
 module.exports = function compose({
