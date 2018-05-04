@@ -1,4 +1,4 @@
-/* eslint-disable no-console,global-require */
+/* eslint-disable no-console,global-require,no-underscore-dangle */
 const mongoose = require('mongoose');
 
 module.exports.connect = async () => {
@@ -12,5 +12,7 @@ module.exports.connect = async () => {
   mongoose.model('User', require('./models/UserSchema'));
   mongoose.model('Absence', require('./models/AbsenceSchema'));
   // mongoose.model('AbsenceChange', require('./controller/absence/AbsenceChangeSchema'));
+
+  return mongoose;
 };
 

@@ -1,9 +1,10 @@
 #!/usr/bin/env node
+/* eslint-disable global-require */
 const normalizePort = require('../util/normalizePort');
 const debug = require('debug')('absence:server');
 const http = require('http');
 require('dotenv').load();
-const mongoose = require('../mongoose');
+const mongooseConnector = require('../mongoose');
 
 let server;
 
@@ -41,10 +42,9 @@ function onListening() {
   console.log(`Listening on ${bind}`);
 }
 
-mongoose.connect().then(() => {
+async function init() {
+  await mongooseConnector.connect();
   const app = require('../app');
-
-  global.mongoose = mongoose;
 
   app.set('port', port);
 
@@ -53,4 +53,5 @@ mongoose.connect().then(() => {
   server.listen(port);
   server.on('error', onError);
   server.on('listening', onListening);
-});
+}
+init().then().catch(console.error);

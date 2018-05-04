@@ -1,7 +1,7 @@
 /* eslint-disable no-underscore-dangle,no-param-reassign */
 const AbsenceChangeController = require('./AbsenceChangeController');
 
-const Absence = global.mongoose.model('Absence');
+const Absence = require('mongoose').model('Absence');
 
 const reportHandler = require('../../util/reportHandler');
 

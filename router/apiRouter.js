@@ -9,10 +9,12 @@ const LoginController = require('../controller/authentication/LoginController');
 const { middleware } = require('../middleware/AuthChecker');
 const Limiter = require('../middleware/Limiter');
 
+Router.post('/login', LoginController);
+
 Router.use(middleware);
 Router.use(Limiter);
 
-Router.post('/api/auth', LoginController);
+// Router.post('/api/auth', LoginController);
 Router.post('/api/auth/renew', RenewController);
 Router.post('/api/substitution', SubstitutionController);
 

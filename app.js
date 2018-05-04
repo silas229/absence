@@ -11,18 +11,15 @@ const Helmet = require('helmet');
 const app = express();
 const { middleware } = require('./middleware/AuthChecker');
 const LoginController = require('./controller/authentication/LoginController');
-const Strategy = require('./controller/authentication/passport/login');
+const Strategy = require('./controller/authentication/passport/LoginLogic');
+
+const reportHandler = require('./util/reportHandler');
 
 const APIRouter = require('./router/apiRouter');
-
 
 Raven.config(process.env.DSN).install();
 app.use(Raven.requestHandler());
 app.use(Raven.errorHandler());
-app.use((err, req, res, next) => {
-  res.statusCode = 500;
-  res.end(`${res.sentry}\n`);
-});
 
 
 app.use(cors());
@@ -33,23 +30,20 @@ if (process.env.PROXY) app.enable('trust proxy');
 app.use(express.static(path.join(__dirname, './public/build')));
 app.get('/*', (req, res) => res.sendFile(path.join(__dirname, './public/build', 'index.html')));
 
-app.use(APIRouter);
-
 app.use(bodyParser.json());
 app.use(passport.initialize());
 
-passport.use('local-login', Strategy);
+passport.use('local', Strategy);
 
-app.use('/api', middleware);
-app.post('/api/auth', LoginController);
-app.post('/api/auth/renew', RenewController);
-app.post('/api/substitution', controller);
+app.use(APIRouter);
+
 
 app.use((err, req, res, next) => {
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-  res.status(err.status || 500);
-  res.json(err);
+  reportHandler({
+    err,
+    reporter: res,
+    status: (err.status || 500),
+  });
 });
 
 module.exports = app;

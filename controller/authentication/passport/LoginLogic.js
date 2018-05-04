@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 const PassportLocal = require('passport-local').Strategy;
 const bcrypt = require('bcryptjs');
 
-const User = global.mongoose.model('User');
+const User = require('mongoose').model('User');
 
 function wrong() {
   const error = new Error('Incorrect Credentials');
@@ -19,9 +19,8 @@ module.exports = new PassportLocal({
 }, async (req, email, password, done) => {
   const userData = {
     email: email.trim(),
-    password: password.trim(),
+    password,
   };
-
   try {
     const user = await User.findOne({ email: userData.email });
 

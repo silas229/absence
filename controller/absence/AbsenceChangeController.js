@@ -2,7 +2,7 @@
 const equal = require('fast-deep-equal');
 const reportHandler = require('../../util/reportHandler');
 
-const Absence = global.mongoose.model('Absence');
+const Absence = require('mongoose').model('Absence');
 
 /**
  *

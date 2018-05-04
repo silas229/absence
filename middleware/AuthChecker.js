@@ -1,7 +1,7 @@
 /* eslint-disable no-underscore-dangle,consistent-return */
 const jwt = require('jsonwebtoken');
 
-const User = global.mongoose.model('User');
+const User = require('mongoose').model('User');
 const reportHandler = require('../util/reportHandler');
 
 function logic(token) {
