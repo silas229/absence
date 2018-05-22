@@ -1,5 +1,6 @@
-/* eslint-disable no-console,global-require,no-underscore-dangle */
+/* eslint-disable no-console,global-require */
 const mongoose = require('mongoose');
+const mongooseSanitizer = require('mongoose-sanitizer');
 
 module.exports.connect = async () => {
   await mongoose.connect(process.env.MONGO_STRING);
@@ -9,8 +10,14 @@ module.exports.connect = async () => {
     process.exit(1);
   });
 
-  mongoose.model('User', require('./models/UserSchema'));
-  mongoose.model('Absence', require('./models/AbsenceSchema'));
+  const UserSchema = require('./models/UserSchema');
+  const AbsenceSchema = require('./models/AbsenceSchema');
+
+  mongoose.model('User', UserSchema);
+
+  AbsenceSchema.plugin(mongooseSanitizer);
+  mongoose.model('Absence', AbsenceSchema);
+
   // mongoose.model('AbsenceChange', require('./controller/absence/AbsenceChangeSchema'));
 
   return mongoose;
