@@ -31,7 +31,15 @@ function insert({
   AbsenceInstance.save(err => reportHandler({ err, reporter }));
 }
 
-
+/**
+ *
+ * @param user The change-issuing User
+ * @param AbsenceInstance An Instance of the Absence Document from the DB
+ * @param targetField the field in the document we're targeting
+ * @param oldValue kinda selfexplaining
+ * @param newValue see @oldValue
+ * @param additional extra params to save in the Change Object in case we need it.
+ */
 function changeGeneric(user, AbsenceInstance, targetField, oldValue, newValue, ...additional) {
   insert({
     AbsenceInstance,
@@ -47,6 +55,14 @@ function changeGeneric(user, AbsenceInstance, targetField, oldValue, newValue, .
   });
 }
 
+/**
+ *
+ * @param user
+ * @param resultField
+ * @param value
+ * @param reporter
+ */
+// TODO: add issuer, because the issuing user has to be proxied to #changeGeneric
 function setGenericAbsenceProperty({
   user, resultField, value, reporter,
 }) {
@@ -56,7 +72,6 @@ function setGenericAbsenceProperty({
     reportHandler({ err, reporter });
   });
 }
-
 
 module.exports = {
   // insert,

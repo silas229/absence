@@ -16,7 +16,9 @@
   ],
   "repository": "https://github.com/LukvonStrom/absence.git",
   "scripts": {
-    "start": "npm install && node ./bin/www"
+    "start": "node ./bin/www",
+    "startninst": "npm install && npm run start",
+    "todo": "node todo-generator"
   },
   "engines": {
     "node": ">=9"
@@ -52,6 +54,8 @@
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.11.0",
+    "gulp": "latest",
+    "gulp-todo": "^6.0.0",
     "mongodb-memory-server": "^1.7.3"
   }
 }

@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 /* eslint-disable global-require */
 const normalizePort = require('../util/normalizePort');
-const debug = require('debug')('absence:server');
 const http = require('http');
 require('dotenv').load();
 const mongooseConnector = require('../mongoose');

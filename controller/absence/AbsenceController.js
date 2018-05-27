@@ -7,7 +7,7 @@ const reportHandler = require('../../util/reportHandler');
 
 /**
  * This Controller function uses the Proxy function
- * <b>createInitialChange</b> to insert a Absence Document with a
+ * <b>#createInitialChange</b> to insert a Absence Document with a
  * Genesis Absence Change, to indicate that it is new.
  *
  * Saving is handled by the AbsenceChangeController.
@@ -21,9 +21,11 @@ function add(req, res) {
       excused: false,
       persistent_excuse: false,
       timestamp: Date.now(),
+      // TODO: Implement matching Validation Model for request and make this dynamic.
       relevant_lessons: '1-6',
       reason: 'Kein Bock lol',
-      // TODO: Implement tutor find
+      // TODO: Implement tutor find =>matching Tutor to be saved in the Document 4 easier searching
+      // @see tutor: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
       tutor: '',
     }),
     reporter: res,
@@ -39,7 +41,8 @@ function add(req, res) {
 function findForUser(req, res) {
   Absence.find({ user: req.user._id })
     .sort({ timestamp: 'desc' })
-    .exec((err, result) => reportHandler({ err, reporter: res, optionalValue: result }));
+    .exec()
+    .then((err, result) => reportHandler({ err, reporter: res, optionalValue: result }));
 }
 
 /**
@@ -51,7 +54,8 @@ function findForUser(req, res) {
 function findTutees(req, res) {
   Absence.find({ tutor: req.user._id })
     .sort({ timestamp: 'desc' })
-    .exec((err, result) => reportHandler({ err, reporter: res, optionalValue: result }));
+    .exec()
+    .then((err, result) => reportHandler({ err, reporter: res, optionalValue: result }));
 }
 
 

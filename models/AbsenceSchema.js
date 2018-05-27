@@ -36,10 +36,10 @@ AbsenceSchema.plugin(mongooseToCsv, {
     korrupterDatensatz: 'integrity',
   },
   virtuals: {
-    Time: doc => (new Date(doc.timestamp)).toISOString().replace(/T/, ' ').replace(/\..+/, ''),
+    Zeit: doc => (new Date(doc.timestamp)).toISOString().replace(/T/, ' ').replace(/\..+/, ''),
     'entschuldigt?': doc => (doc.excused ? 'ja' : 'nein'),
     'schr._entschuldigt?': doc => (doc.persistent_excuse ? 'ja' : 'nein'),
-    Veranderungen: doc => doc.absence_log.map(a => `zeit: ${a.timestamp} zielwert: ${a.target_field} alterWert: ${a.old_value}, neuerWert: ${a.new_value}`)
+    Veranderungen: doc => doc.absence_log.map(a => `zeit: ${a.timestamp} zielwert: ${a.target_field} alterWert: ${a.old_value}, neuerWert: ${a.new_value}`),
   },
 });
 
