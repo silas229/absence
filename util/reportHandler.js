@@ -1,4 +1,4 @@
-/* eslint-disable consistent-return */
+/* eslint-disable consistent-return,no-console */
 
 function returnMatching(reporter, value) {
   if (typeof reporter.status === 'function' && typeof reporter.json === 'function') {
@@ -10,11 +10,12 @@ function returnMatching(reporter, value) {
 module.exports = ({
   err, reporter, optionalValue, auth = false, status = 500,
 }) => {
+  if (process.env.DEBUG) console.log(err.message, optionalValue, auth, status);
   if (err) {
     const ErrorObj = {
       Operation: {
         status: 'Error',
-        message: err,
+        message: err.message,
         errorId: reporter.sentry,
       },
     };
