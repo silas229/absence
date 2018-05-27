@@ -10,7 +10,7 @@ function returnMatching(reporter, value) {
 module.exports = ({
   err, reporter, optionalValue, auth = false, status = 500,
 }) => {
-  if (process.env.DEBUG) console.log(err.message, optionalValue, auth, status);
+  if (process.env.DEBUG) console.log(err, optionalValue, auth, status);
   if (err) {
     const ErrorObj = {
       Operation: {

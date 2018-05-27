@@ -22,10 +22,9 @@ module.exports = (req, res, next) => {
 
   passport.authenticate('local', (err, token, userData) => {
     if (err || token === false || userData.message === 'Missing credentials') {
-      let error = 'InternalError';
-      if (err.name === 'IncorrectCredentialsError') {
-        error = err.name;
-      }
+      let error = new Error('InternalError');
+      if (userData && userData.message === 'Missing credentials') error = new Error(userData.message);
+      if (err && err.name === 'IncorrectCredentialsError') error = new Error(err.name);
       return reportHandler({ auth: true, err: error, reporter: res });
     }
 

@@ -14,7 +14,9 @@ const reportHandler = require('./util/reportHandler');
 
 const APIRouter = require('./router/apiRouter');
 
-Raven.config(process.env.SENTRY_DSN).install();
+Raven.config(process.env.SENTRY_DSN, {
+  captureUnhandledRejections: true,
+}).install();
 app.use(Raven.requestHandler());
 app.use(Raven.errorHandler());
 
@@ -24,15 +26,16 @@ app.use(Helmet());
 
 if (process.env.PROXY) app.enable('trust proxy');
 
+app.use(bodyParser.json());
+app.use(passport.initialize());
+
+passport.use('local', Strategy);
+
 // app.use(express.static(path.join(__dirname, './public/build')));
 
 // app.get('/*', (req, res) => res.sendFile(path.join(__dirname, './public/build', 'index.html')));
 app.use(APIRouter);
 
-app.use(bodyParser.json());
-app.use(passport.initialize());
-
-passport.use('local', Strategy);
 
 handlers();
 
