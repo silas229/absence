@@ -6,6 +6,7 @@ const AbsenceChangeSchema = new mongoose.Schema({
   target_field: String,
   old_value: String,
   new_value: String,
+  previous_change: String,
 });
 
 module.exports = AbsenceChangeSchema;

@@ -5,6 +5,7 @@ const path = require('path');
 const cors = require('cors');
 const Raven = require('raven');
 const Helmet = require('helmet');
+const handlers = require('./handlers');
 
 const app = express();
 const Strategy = require('./controller/authentication/passport/LoginLogic');
@@ -23,16 +24,17 @@ app.use(Helmet());
 
 if (process.env.PROXY) app.enable('trust proxy');
 
-app.use(express.static(path.join(__dirname, './public/build')));
-app.get('/*', (req, res) => res.sendFile(path.join(__dirname, './public/build', 'index.html')));
+// app.use(express.static(path.join(__dirname, './public/build')));
+
+// app.get('/*', (req, res) => res.sendFile(path.join(__dirname, './public/build', 'index.html')));
+app.use(APIRouter);
 
 app.use(bodyParser.json());
 app.use(passport.initialize());
 
 passport.use('local', Strategy);
 
-app.use(APIRouter);
-
+handlers();
 
 // eslint-disable-next-line no-unused-vars
 app.use((err, req, res, next) => {
