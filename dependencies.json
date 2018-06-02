@@ -1,0 +1,148 @@
+{
+    "bcryptjs@2.4.3": {
+        "licenses": "MIT",
+        "repository": "https://github.com/dcodeIO/bcrypt.js",
+        "licenseUrl": "https://github.com/dcodeIO/bcrypt.js/raw/master/LICENSE",
+        "parents": "absence-server"
+    },
+    "body-parser@1.18.2": {
+        "licenses": "MIT",
+        "repository": "https://github.com/expressjs/body-parser",
+        "licenseUrl": "https://github.com/expressjs/body-parser/raw/master/LICENSE",
+        "parents": "absence-server"
+    },
+    "burns@2.0.1": {
+        "licenses": "MIT",
+        "repository": "https://github.com/shalvah/burns",
+        "licenseUrl": "https://github.com/shalvah/burns",
+        "parents": "absence-server"
+    },
+    "cheerio@1.0.0-rc.2": {
+        "licenses": "MIT",
+        "repository": "https://github.com/cheeriojs/cheerio",
+        "licenseUrl": "https://github.com/cheeriojs/cheerio/raw/master/LICENSE",
+        "parents": "absence-server"
+    },
+    "cors@2.8.4": {
+        "licenses": "MIT",
+        "repository": "https://github.com/expressjs/cors",
+        "licenseUrl": "https://github.com/expressjs/cors/raw/master/LICENSE",
+        "parents": "absence-server"
+    },
+    "debug@3.1.0": {
+        "licenses": "MIT",
+        "repository": "https://github.com/visionmedia/debug",
+        "licenseUrl": "https://github.com/visionmedia/debug/raw/master/LICENSE",
+        "parents": "absence-server"
+    },
+    "dotenv@5.0.1": {
+        "licenses": "BSD-2-Clause",
+        "repository": "https://github.com/motdotla/dotenv",
+        "licenseUrl": "https://github.com/motdotla/dotenv/raw/master/LICENSE",
+        "parents": "absence-server"
+    },
+    "dsbclient@1.3.1": {
+        "licenses": "MIT",
+        "parents": "absence-server"
+    },
+    "express-rate-limiter@1.3.1": {
+        "licenses": "Apache-2.0",
+        "repository": "https://github.com/StevenThuriot/express-rate-limiter",
+        "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.html",
+        "parents": "absence-server"
+    },
+    "express@4.16.3": {
+        "licenses": "MIT",
+        "repository": "https://github.com/expressjs/express",
+        "licenseUrl": "https://github.com/expressjs/express/raw/master/LICENSE",
+        "parents": "absence-server"
+    },
+    "fast-deep-equal@2.0.1": {
+        "licenses": "MIT",
+        "repository": "https://github.com/epoberezkin/fast-deep-equal",
+        "licenseUrl": "https://github.com/epoberezkin/fast-deep-equal/raw/master/LICENSE",
+        "parents": "absence-server"
+    },
+    "helmet@3.12.0": {
+        "licenses": "MIT",
+        "repository": "https://github.com/helmetjs/helmet",
+        "licenseUrl": "https://github.com/helmetjs/helmet/raw/master/LICENSE",
+        "parents": "absence-server"
+    },
+    "joi@13.2.0": {
+        "licenses": "BSD-3-Clause",
+        "repository": "https://github.com/hapijs/joi",
+        "licenseUrl": "https://github.com/hapijs/joi/raw/master/LICENSE",
+        "parents": "absence-server"
+    },
+    "jsonwebtoken@8.2.1": {
+        "licenses": "MIT",
+        "repository": "https://github.com/auth0/node-jsonwebtoken",
+        "licenseUrl": "https://github.com/auth0/node-jsonwebtoken/raw/master/LICENSE",
+        "parents": "absence-server"
+    },
+    "mongoose-sanitizer@1.0.0": {
+        "licenses": "MIT",
+        "repository": "https://github.com/fauria/mongoose-sanitizer",
+        "licenseUrl": "https://github.com/fauria/mongoose-sanitizer/raw/master/LICENSE",
+        "parents": "absence-server"
+    },
+    "mongoose-to-csv@0.1.1": {
+        "licenses": "UNKNOWN",
+        "repository": "https://github.com/Nindaff/mongooseToCsv",
+        "licenseUrl": "https://github.com/Nindaff/mongooseToCsv/raw/master/LICENCE",
+        "parents": "absence-server"
+    },
+    "mongoose@5.0.13": {
+        "licenses": "MIT",
+        "repository": "https://github.com/Automattic/mongoose",
+        "licenseUrl": "https://github.com/Automattic/mongoose",
+        "parents": "absence-server"
+    },
+    "node-native-zip@1.1.0": {
+        "licenses": "UNKNOWN",
+        "parents": "absence-server"
+    },
+    "nodemailer@4.6.5": {
+        "licenses": "MIT",
+        "repository": "https://github.com/nodemailer/nodemailer",
+        "licenseUrl": "https://github.com/nodemailer/nodemailer/raw/master/LICENSE",
+        "parents": "absence-server"
+    },
+    "object-hash@1.3.0": {
+        "licenses": "MIT",
+        "repository": "https://github.com/puleos/object-hash",
+        "licenseUrl": "https://github.com/puleos/object-hash/raw/master/LICENSE",
+        "parents": "absence-server"
+    },
+    "passport-local@1.0.0": {
+        "licenses": "MIT",
+        "repository": "https://github.com/jaredhanson/passport-local",
+        "licenseUrl": "http://www.opensource.org/licenses/MIT",
+        "parents": "absence-server"
+    },
+    "passport@0.4.0": {
+        "licenses": "MIT",
+        "repository": "https://github.com/jaredhanson/passport",
+        "licenseUrl": "https://github.com/jaredhanson/passport/raw/master/LICENSE",
+        "parents": "absence-server"
+    },
+    "raven@2.5.0": {
+        "licenses": "BSD-2-Clause",
+        "repository": "https://github.com/getsentry/raven-node",
+        "licenseUrl": "https://github.com/getsentry/raven-node/raw/master/LICENSE",
+        "parents": "absence-server"
+    },
+    "request-promise-native@1.0.5": {
+        "licenses": "ISC",
+        "repository": "https://github.com/request/request-promise-native",
+        "licenseUrl": "https://github.com/request/request-promise-native/raw/master/LICENSE",
+        "parents": "absence-server"
+    },
+    "request@2.85.0": {
+        "licenses": "Apache-2.0",
+        "repository": "https://github.com/request/request",
+        "licenseUrl": "https://github.com/request/request/raw/master/LICENSE",
+        "parents": "absence-server"
+    }
+}
